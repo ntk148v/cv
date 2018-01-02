@@ -1,2 +1,1 @@
-# cv
-CV in LaTeX.
+# Resume/Curriculum Vitae
