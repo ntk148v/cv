@@ -1,0 +1,284 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+	\textheight=700px                    % Saving trees ;-)
+\usepackage{wrapfig}
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{999999999999}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1.5em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=1em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\large\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{2.5em} \large{#2} \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=1em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\large\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{2.5em} \large{#2} \par}    % Entry value	
+        
+\newcommand{\InterestsEntry}[1]{      % Same as \PersonalEntry
+		\noindent\hangindent=1em\hangafter=0 % Indentation
+		\large{#1}}
+
+\newcommand{\AwardsEntry}[1]{      % Same as \PersonalEntry
+		\noindent\hangindent=1em\hangafter=0 % Indentation
+		\large{#1}}
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent\hangindent=1em\hangafter=0 \large\textbf{#1} \hfill      % Study
+		\colorbox{Gray}{%
+			\parbox{6.5em}{%
+			\hfill\color{White}\large #2}} \par  % Duration
+		\noindent\hangindent=2em\hangafter=0\large\textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0\large{#4} % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Maroon}{\color{White}\large #2} \par  % Duration
+		\noindent\large\textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0\large{#4} % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\vspace*{-2em}
+		\includegraphics[width=0.15\textwidth]{avatar.png}
+\end{wrapfigure}
+
+\MyName{{\color{Gray}Kien}{ Nguyen}}
+\MySlogan{Curriculum Vitae}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Full Name:}{NGUYEN TUAN KIEN}
+\PersonalEntry{Birthplace:}{Ukraine}
+\PersonalEntry{Birthday:}{September 26, 1994}
+\PersonalEntry{Address:}{18, Hoang Hoa Tham Street, Ha Noi}
+\PersonalEntry{Phone:}{(+84) 9768 72724}
+\PersonalEntry{Mail:}{\url{kiennt2609@gmail.com}}
+\PersonalEntry{Github:}{\url{http://github.com/ntk148v}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{University}{2012-2017}{Ha Noi University of Sciene and Technology, Ha Noi}{Major: Information System. CPA : 3.23/4.0}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experiences}{}
+
+\EducationEntry{Internship \vspace*{0.3em}}{2015-2017}{International Institute for Computational Science and Engineering(ICSE)}{
+\begin{enumerate}
+	\setlength{\itemindent}{+1em}
+    %% 1
+    \item{Learn and deploy Cloud Computing and OpenStack.}
+      \begin{itemize}
+          \item{OpenStack Kilo and Mitaka Release.}
+          \item{Work with Linux distros: Ubuntu and RedHat}
+          \item{Deploy OpenStack High Availability with HAProxy and Pacemaker in RedHat servers.}
+      \end{itemize}
+    %% 2
+	\item{Learn and work on BIMI(Bio-Informatics Management Interface) Project tutored by Ph.D Binh Minh Nguyen, MSc Hieu Le (Fujitsu Vietnam).}
+      \begin{itemize}
+      	  \item{Implemented in Python.}
+          \item{Visualize Bio Workflow with Django(OpenStack Horizon) and GoJS.}
+          \item{Control Bio Workflow with OpenStack Mistral - Workflow Service.}
+          \item{To interact with Docker(Build image and run container), OpenStack Heat Docker is used.}
+          \item{OpenStack Swift is used as storage backend.}
+      \end{itemize}
+    %% 3
+	\item{Learn and work on CAL Project(Cloud Abstract Layer) tutored by Ph.D Binh Minh Nguyen(HUST), MSc Hieu Le(Fujitsu Vietnam).}
+      \begin{itemize}
+		  \item{Implemented in Python and still in progress.}
+          \item{Abstraction of cloud resources.}
+          \item{Use Falcon - Python Web Framework to implement WSGI in CAL.}
+          \item{CAL is also designed to use as a library.}
+          \item{Now, CAL is available in Pypi (\url{https://pypi.python.org/pypi/calplus/})}
+	  \end{itemize}
+    %% 4
+    \item{Commit to OpenStack, tutored by MSc Hieu Le (Fujitsu Vietnam).}
+    %% 5
+    \item{Deploy OpenStack in Docker containers with Kolla and Ansible.}
+    %% 6
+    \item{Final Year Project: Object storage management in Multi-cloud (OpenStack Swift and Amazon S3) using CAL lib and Chord protocol.}
+       \begin{itemize}
+          \item{Works with OpenStack Swift and Amazon S3 using CAL lib.}
+          \item{Implement Chord protocol for data lookup purpose.}
+       \end{itemize}
+\end{enumerate}}
+\sepspace
+
+\EducationEntry{Internship \& Parttime Developer \vspace*{0.3em}}{2016-2017}{Vega Corporation}{
+\begin{enumerate}
+	\setlength{\itemindent}{+1em}
+    \item{Work with OpenStack in production environment.}
+    \item{Write shell scripts for OpenStack automate deployment.}
+    \item{Monitor OpenStack and virtualization service with Zabbix.}
+    \item{Learn about Kubernetes - an open-source system for automating deployment, scaling, and management of containerized applications.}
+\end{enumerate}}
+
+\EducationEntry{Software Engineer \vspace*{0.3em}}{2017-Present}{Fujitsu Vietnam Ltd}{
+\begin{enumerate}
+	\setlength{\itemindent}{+1em}
+    %% 1
+    \item{Become OpenStack upstream contributor.}
+    	\begin{itemize}
+    		\item{Contribute to OpenStack projects.}
+            \item{Communicate with other OpenStack contributors around the world.}
+    	\end{itemize}
+    %% 2
+    \item{Become OpenStack Zun core reviewer.}
+    %% 3
+    \item{Setup environment \& test Heat Rolling upgrade strategy.}
+    %% 4
+    \item{Docker \& Kubernetes.}
+\end{enumerate}}
+\sepspace
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Technology Skills}{}
+
+\SkillsEntry{Programming Languages}
+     {Python(Advanced), Bash/Zsh Shell(Intermediate)}
+\SkillsEntry{}
+     {Java, PHP(Intermediate), C(Basic)}
+\sepspace     
+  
+\SkillsEntry{Markup Languages}
+	 {HTML, CSS(Basic), Markdown(Advanced)}
+\SkillsEntry{}
+	 {reStructuredText(Intermediate)}
+\sepspace
+
+\SkillsEntry{Databases}
+	 {MySQL(Intermediate), Microsoft SQL Server(Basic)}
+\sepspace
+
+\SkillsEntry{Operating Systems}
+     {Linux(Intermediate), Window}
+\sepspace
+
+\SkillsEntry{Collaboration Platform}
+	 {Git - GitHub}
+\sepspace
+
+\SkillsEntry{Github Integrations}
+	{Travis CI, Coveralls}
+\sepspace
+
+\SkillsEntry{CloudComputing}
+	 {OpenStack(IaaS), Heroku(PaaS)}
+\sepspace
+
+\SkillsEntry{Container Platform}
+	{Docker(Intermediate), Kubernetes(Intermediate)}
+\sepspace
+
+\SkillsEntry{Another}
+	 {InfluxData Products(Basic), Zabbix(Intermediate)}
+\sepspace
+
+
+%%% Language
+%%% ------------------------------------------------------------
+\NewPart{Language}
+
+\SkillsEntry{Vietnamese}{Mothertongue}
+\sepspace
+
+\SkillsEntry{English}{Can read and understand IT references. TOEIC: fillitlater}
+\sepspace
+
+%%% Awards 
+%%% ------------------------------------------------------------
+\NewPart{Awards}
+
+\begin{itemize}
+\item \AwardsEntry{First Place Winner with BKCLOUD Team - 2015 National IT Olympic Contest, Open Source Software Content.}
+\item \AwardsEntry{Merrit of Ministry of Science \& Technology for First Place Winner - 2015 National IT Olympic Contest, Open Source Software Content.}
+\end{itemize}
+
+
+%%% Interests 
+%%% ------------------------------------------------------------
+\NewPart{Research Interests and Desires}
+
+\begin{itemize}
+\item \InterestsEntry{Work with Python and its library.}
+\item \InterestsEntry{Join in Openstack-based IaaS Cloud Project.}
+\item \InterestsEntry{Learn more things about Cloud computing,FOSS like OpenStack, Docker, Puppet, Ansible...}
+\item \InterestsEntry{Desire to build an enterprise solution from architecture designing to coding, operation, based on OSS solution such as OpenStack (for infra management), Docker (for platform deployment), Ansible (for automation deploying and CI, CD).}
+\item \InterestsEntry{Work with experienced persons and in enterprise enviroment.}
+\item \InterestsEntry{Bring knowledges about OSS to production environment.}
+\item \InterestsEntry{Flexible time schedule.}
+\end{itemize}
+
+\end{document}
